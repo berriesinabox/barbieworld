@@ -487,17 +487,18 @@ footer {
   border-radius: 6px;
   box-shadow: 0 4px 12px rgba(255, 105, 180, 0.4);
 }
-/* Navbar (Desktop Default) */
+/* ─────────────────────────────────────────────────────────
+   NAVBAR  –  DESKTOP / LARGE SCREENS  (width ≥ 769 px)
+   ───────────────────────────────────────────────────────── */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   padding: 12px 24px;
-  background-color: #33001a;
-  position: relative;
-  z-index: 1000;
+  background-color: #33001a;  /* deep Barbie pink */
   width: 100%;
+  z-index: 1000;
 }
 
 .navbar .logo {
@@ -509,133 +510,79 @@ footer {
   list-style: none;
   display: flex;
   gap: 18px;
-  padding-left: 0;
   margin: 0;
+  padding-left: 0;
 }
 
 .nav-links li a {
-  color: white;
+  color: #fff;
   text-decoration: none;
   font-weight: 500;
 }
 
-.nav-links .active {
+.nav-links li a.active {
   text-decoration: underline;
   font-weight: 600;
 }
 
-/* Mobile Bottom Navbar */
+/* ─────────────────────────────────────────────────────────
+   NAVBAR  –  MOBILE & SMALL TABLET  (width ≤ 768 px)
+   ───────────────────────────────────────────────────────── */
 @media screen and (max-width: 768px) {
+
+  /* leave room for the fixed bottom bar */
   body {
-    padding-bottom: 80px; /* Make space for fixed bottom nav */
+    padding-bottom: 90px;
   }
 
+  /* bottom “app‑bar” style navbar */
   .navbar {
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(12px);
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
+    background: #33001a;
+    box-shadow: 0 -3px 12px rgba(0,0,0,.25);
     padding: 8px 10px;
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    flex-direction: column;      /* logo on top, links under it */
+    align-items: center;
+    gap: 6px;
   }
 
   .navbar .logo {
-    display: none;
-  }
-
-  .nav-links {
-    flex-direction: row;
-    justify-content: space-around;
-    width: 100%;
-    padding: 0;
+    width: 90px;                 /* smaller logo for phones */
     margin: 0;
   }
 
-  .nav-links li {
-    list-style: none;
-  }
-
-  .nav-links li a {
-    display: inline-block;
-    padding: 8px 14px;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 12px;
-    color: white;
-    font-size: 14px;
-    font-weight: 500;
-    text-decoration: none;
-    transition: background 0.3s ease;
-  }
-
-  .nav-links li a:hover {
-    background: rgba(255, 255, 255, 0.4);
-  }
-
-  .nav-links .active {
-    background: rgba(255, 255, 255, 0.5);
-    font-weight: 600;
-  }
-}
-@media screen and (max-width: 768px) {
-  body {
-    padding-bottom: 70px; /* space for fixed bottom navbar */
-  }
-
-  .navbar {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: #33001a; /* solid fallback */
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    padding: 10px 12px;
-    height: 60px;
-    z-index: 9999; /* ensure it's above everything */
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
-  }
-
-  .navbar .logo {
-    display: none; /* hide on mobile */
-  }
-
   .nav-links {
+    width: 100%;
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    margin: 0;
+    gap: 0;
     padding: 0;
+    margin: 0;
   }
 
   .nav-links li {
     list-style: none;
+    flex: 1 1 20%;
+    text-align: center;
   }
 
   .nav-links li a {
-    display: inline-block;
-    padding: 8px 12px;
-    background-color: rgba(255, 255, 255, 0.15);
+    display: block;
+    margin: 0 4px;
+    padding: 10px 0;
     border-radius: 12px;
-    color: white;
+    background: rgba(255,255,255,.18);
     font-size: 14px;
+    font-weight: 600;
+    color: #fff;
     text-decoration: none;
   }
 
-  .nav-links li a:hover {
-    background-color: rgba(255, 255, 255, 0.3);
-  }
-
+  .nav-links li a:hover,
   .nav-links li a.active {
-    background-color: rgba(255, 255, 255, 0.4);
-    font-weight: 600;
+    background: rgba(255,255,255,.32);
   }
 }
-
