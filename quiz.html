@@ -1,0 +1,236 @@
+<!-- quiz.html – Barbie World Personality Quiz -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Barbie Quiz | Barbie World</title>
+
+  <!-- Main site stylesheet -->
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"/>
+
+  <!-- Favicon set -->
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png" />
+  <link rel="manifest" href="images/site.webmanifest" />
+
+  <!-- ✨ Page-specific styles -->
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: url('images/quizbg.jpg') no-repeat center center fixed; 
+      background-size: cover;
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    .sparkle {
+      position: fixed;
+      width: 4px; height: 4px;
+      background: rgba(255,255,255,0.9);
+      border-radius: 50%;
+      pointer-events: none;
+      animation: drift 10s linear infinite;
+    }
+
+    @keyframes drift {
+      from { transform: translateY(0) scale(1); opacity: 1; }
+      to { transform: translateY(-120vh) scale(0.6); opacity: 0; }
+    }
+
+    .quiz-container {
+      max-width: 700px;
+      margin: 100px auto;
+      background: rgba(255, 245, 252, 0.88);
+      backdrop-filter: blur(6px);
+      padding: 45px 40px 55px;
+      border-radius: 20px;
+      box-shadow: 0 8px 24px rgba(255, 105, 180, 0.35);
+      position: relative;
+    }
+
+    .quiz-container h2 {
+      font-family: 'Parisienne', cursive;
+      font-size: 42px;
+      text-align: center;
+      color: #d63384;
+      margin-bottom: 35px;
+    }
+
+    .question { margin-bottom: 30px; }
+    .question p { font-weight: 600; margin-bottom: 12px; }
+    .question label { display:block; margin-bottom: 8px; cursor:pointer; }
+
+    .submit-btn {
+      background: #ff69b4;
+      color: #fff;
+      border: none;
+      padding: 14px 30px;
+      border-radius: 30px;
+      font-size: 16px;
+      display: block;
+      margin: 35px auto 0;
+      cursor: pointer;
+      transition: .3s;
+    }
+
+    .submit-btn:hover {
+      background: #ff1493;
+      transform: scale(1.05);
+    }
+
+    #result {
+      margin-top: 35px;
+      text-align: center;
+      font-size: 22px;
+      font-weight: 600;
+      color: #d63384;
+      opacity: 0;
+      transform: scale(0.85);
+      transition: all 0.5s ease;
+    }
+
+    #result.show {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    #backToTop {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #ffc0db;
+      color: #fff;
+      border: none;
+      padding: 12px 18px;
+      border-radius: 50%;
+      font-size: 22px;
+      font-weight: bold;
+      cursor: pointer;
+      display: none;
+      transition: background 0.3s ease, transform 0.3s ease;
+      box-shadow: 0 4px 12px rgba(255, 182, 193, 0.5);
+    }
+
+    #backToTop:hover {
+      background: #ff9ac2;
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Sparkle container -->
+  <div id="sparkle-container"></div>
+
+  <!-- Navbar -->
+  <header>
+    <nav class="navbar">
+      <img src="images/barbie-logo.png" alt="Barbie Logo" class="logo" />
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="movies.html">Movies</a></li>
+        <li><a href="quiz.html" class="active">Quiz</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Quiz Section -->
+  <main>
+    <div class="quiz-container">
+      <h2>Which Barbie Are You?</h2>
+      <form id="barbieQuiz">
+        <div class="question">
+          <p>1. Your dream vacation?</p>
+          <label><input type="radio" name="q1" value="A"> Paris Fashion Week</label>
+          <label><input type="radio" name="q1" value="B"> Enchanted Forest</label>
+          <label><input type="radio" name="q1" value="C"> Crystal Castle</label>
+        </div>
+
+        <div class="question">
+          <p>2. Pick a hobby:</p>
+          <label><input type="radio" name="q2" value="A"> Designing dazzling outfits</label>
+          <label><input type="radio" name="q2" value="B"> Training a winged horse</label>
+          <label><input type="radio" name="q2" value="C"> Exploring coral reefs</label>
+        </div>
+
+        <div class="question">
+          <p>3. Favorite color palette?</p>
+          <label><input type="radio" name="q3" value="A"> Hot pink & gold</label>
+          <label><input type="radio" name="q3" value="B"> Lavender & silver</label>
+          <label><input type="radio" name="q3" value="C"> Aqua & pearl</label>
+        </div>
+
+        <div class="question">
+          <p>4. Your ideal pet?</p>
+          <label><input type="radio" name="q4" value="A"> A chatty puppy</label>
+          <label><input type="radio" name="q4" value="B"> A dragonfly unicorn</label>
+          <label><input type="radio" name="q4" value="C"> A sparkling seahorse</label>
+        </div>
+
+        <div class="question">
+          <p>5. Your personal anthem?</p>
+          <label><input type="radio" name="q5" value="A"> “This Is My Moment”</label>
+          <label><input type="radio" name="q5" value="B"> “I Believe”</label>
+          <label><input type="radio" name="q5" value="C"> “Queen of the Waves”</label>
+        </div>
+
+        <button type="submit" class="submit-btn">Reveal Your Barbie!</button>
+      </form>
+      <div id="result"></div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p class="movie-caption">&copy; 2025 Barbie World by Shivangi</p>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button id="backToTop" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">↑</button>
+
+  <!-- JavaScript -->
+  <script>
+    // Quiz logic
+    document.getElementById("barbieQuiz").addEventListener("submit", function(e){
+      e.preventDefault();
+      const score = { A:0, B:0, C:0 };
+      ['q1','q2','q3','q4','q5'].forEach(q=>{
+        const sel = document.querySelector(`input[name="${q}"]:checked`);
+        if(sel) score[sel.value]++;
+      });
+      let result = "You’re a unique mix of all Barbies! 🌈👑";
+      if(score.A > score.B && score.A > score.C) result = "You’re Barbie from Fashion Fairytale! 💖✨";
+      else if(score.B > score.A && score.B > score.C) result = "You’re Barbie from Magic of Pegasus! 🐴☁️";
+      else if(score.C > score.A && score.C > score.B) result = "You’re Barbie from Mermaidia! 🧜‍♀️🌊";
+      const resBox = document.getElementById("result");
+      resBox.textContent = result;
+      resBox.classList.add("show");
+    });
+
+    // Sparkles
+    const wrap = document.getElementById("sparkle-container");
+    for(let i=0; i<60; i++){
+      const d = document.createElement("div");
+      d.className = "sparkle";
+      d.style.left = Math.random()*100 + "vw";
+      d.style.top = 100 + Math.random()*100 + "vh";
+      d.style.animationDelay = Math.random()*-10 + "s";
+      wrap.appendChild(d);
+    }
+
+    // Back to top
+    window.addEventListener("scroll", () => {
+      const btn = document.getElementById("backToTop");
+      if(btn) btn.style.display = window.scrollY > 300 ? "block" : "none";
+    });
+  </script>
+</body>
+</html>

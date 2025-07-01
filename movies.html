@@ -1,0 +1,263 @@
+<!-- movies.html – Barbie World Movie Gallery -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Movies | Barbie World</title>
+
+  <!-- ✅ Correct stylesheet path -->
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap" rel="stylesheet" />
+
+  <!-- Favicons -->
+  <link rel="icon" href="images/favicon-32x32.png" type="image/png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png" />
+  <link rel="manifest" href="images/site.webmanifest" />
+
+  <style>
+    .gallery-title {
+      font-family: 'Satisfy', cursive;
+      color: #222;
+      transition: all 0.3s ease;
+      text-align: center;
+      font-size: 46px;
+      margin-bottom: 20px;
+    }
+
+    .gallery-title:hover {
+      color: #ff69b4;
+      transform: scale(1.08);
+    }
+
+    #searchBar {
+      display: block;
+      margin: 0 auto 40px;
+      padding: 10px 18px;
+      width: 70%;
+      max-width: 450px;
+      border: 2px solid #ff69b4;
+      border-radius: 30px;
+      font-family: 'Poppins', sans-serif;
+      outline: none;
+      transition: border 0.3s ease;
+    }
+
+    #searchBar:focus {
+      border-color: #d63384;
+    }
+
+    .movie-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 30px;
+      padding: 0 10%;
+    }
+
+    .movie-card {
+      background-color: #fff0fa;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 6px 18px rgba(255, 105, 180, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .movie-card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 10px 24px rgba(255, 105, 180, 0.45);
+    }
+
+    .movie-card iframe {
+      width: 100%;
+      height: 360px;
+      display: block;
+    }
+
+    .movie-title {
+      font-family: 'Cormorant Garamond', serif;
+      color: #d63384;
+      text-align: center;
+      transition: all 0.3s ease;
+      margin: 12px auto 4px;
+      max-width: 90%;
+      font-size: 20px;
+      line-height: 1.3;
+      word-wrap: break-word;
+    }
+
+    .movie-title:hover {
+      color: #ff69b4;
+      transform: scale(1.05);
+    }
+
+    .movie-caption {
+      font-family: 'Rubik', sans-serif;
+      color: #444;
+      text-align: center;
+      transition: all 0.3s ease;
+      margin: 0 0 20px;
+    }
+
+    .movie-caption:hover {
+      color: #ff69b4;
+      transform: scale(1.05);
+    }
+
+    .badge {
+      display: inline-block;
+      background: #ff69b4;
+      color: #fff;
+      font-size: 12px;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin: 10px auto 0;
+      text-align: center;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    #backToTop {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #ffc0db;
+      color: #fff;
+      border: none;
+      padding: 12px 18px;
+      border-radius: 50%;
+      font-size: 22px;
+      font-weight: bold;
+      cursor: pointer;
+      display: none;
+      transition: background 0.3s ease, transform 0.3s ease;
+      box-shadow: 0 4px 12px rgba(255, 182, 193, 0.5);
+    }
+
+    #backToTop:hover {
+      background: #ff9ac2;
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <header>
+    <nav class="navbar">
+      <img src="images/barbie-logo.png" alt="Barbie Logo" class="logo" />
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="movies.html" class="active">Movies</a></li>
+        <li><a href="quiz.html">Quiz</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <section class="movies-gallery">
+      <h2 class="gallery-title">Barbie Movie Gallery</h2>
+      <input type="text" id="searchBar" placeholder="Search Barbie Movies..." />
+
+      <div class="movie-grid">
+        <!-- Movie Cards -->
+        <div class="movie-card" data-title="princess charm school">
+          <iframe src="https://www.youtube.com/embed/GztMg3c2EgQ" title="Princess Charm School Trailer" frameborder="0" allowfullscreen></iframe>
+          <span class="badge">🏆 Fan Favorite</span>
+          <h3 class="movie-title">Princess Charm School</h3>
+          <p class="movie-caption">Not every princess is born royal.</p>
+        </div>
+
+        <div class="movie-card" data-title="barbie 2023">
+          <iframe src="https://www.youtube.com/embed/pBk4NYhWNMM" title="Barbie 2023 Trailer" frameborder="0" allowfullscreen></iframe>
+          <span class="badge">🎬 Live‑Action</span>
+          <h3 class="movie-title">Barbie (2023)</h3>
+          <p class="movie-caption">She's everything. He's just Ken.</p>
+        </div>
+
+        <div class="movie-card" data-title="fairytopia">
+          <iframe src="https://www.youtube.com/embed/pITEecVKOeE" title="Fairytopia Trailer" frameborder="0" allowfullscreen></iframe>
+          <span class="badge">🧚 Fantasy</span>
+          <h3 class="movie-title">Fairytopia</h3>
+          <p class="movie-caption">Wings or no wings, believe in yourself.</p>
+        </div>
+
+        <div class="movie-card" data-title="diamond castle">
+          <iframe src="https://www.youtube.com/embed/pFGK_MP4Nmk" title="Diamond Castle Trailer" frameborder="0" allowfullscreen></iframe>
+          <span class="badge">🎶 Musical</span>
+          <h3 class="movie-title">Diamond Castle</h3>
+          <p class="movie-caption">Best friends, music, and a magical mirror.</p>
+        </div>
+
+        <div class="movie-card" data-title="nutcracker">
+          <iframe src="https://www.youtube.com/embed/Gvdya_iEJ28" title="Nutcracker Trailer" frameborder="0" allowfullscreen></iframe>
+          <span class="badge">🎄 Classic</span>
+          <h3 class="movie-title">Nutcracker</h3>
+          <p class="movie-caption">Her first movie — a dreamy classic ballet story.</p>
+        </div>
+
+        <div class="movie-card" data-title="magic of pegasus">
+          <iframe src="https://www.youtube.com/embed/ztb9hxl9yXA" title="Magic of Pegasus Trailer" frameborder="0" allowfullscreen></iframe>
+          <span class="badge">☁ Adventure</span>
+          <h3 class="movie-title">Magic of Pegasus</h3>
+          <p class="movie-caption">Adventure across the clouds with a flying horse.</p>
+        </div>
+
+        <div class="movie-card" data-title="fashion fairytale">
+          <iframe src="https://www.youtube.com/embed/Ph094YzC9-A" title="Fashion Fairytale Trailer" frameborder="0" allowfullscreen></iframe>
+          <span class="badge">👗 Fashion</span>
+          <h3 class="movie-title">Fashion Fairytale</h3>
+          <p class="movie-caption">Paris, sparkles, and fashion magic.</p>
+        </div>
+
+        <div class="movie-card" data-title="mermaidia">
+          <iframe src="https://www.youtube.com/embed/Q-QKSJhCE-c" title="Mermaidia Trailer" frameborder="0" allowfullscreen></iframe>
+          <span class="badge">🌊 Underwater</span>
+          <h3 class="movie-title">Mermaidia</h3>
+          <p class="movie-caption">Dive deep into friendship and magic.</p>
+        </div>
+
+        <div class="movie-card" data-title="pearl princess">
+          <iframe src="https://www.youtube.com/embed/jv8FtZLDKuY" title="Pearl Princess Trailer" frameborder="0" allowfullscreen></iframe>
+          <span class="badge">👑 Royal</span>
+          <h3 class="movie-title">The Pearl Princess</h3>
+          <p class="movie-caption">From hidden princess to sea queen.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p class="movie-caption">&copy; 2025 Barbie World by Shivangi</p>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button id="backToTop" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">↑</button>
+
+  <!-- JavaScript -->
+  <script>
+    const searchBar = document.getElementById("searchBar");
+    searchBar.addEventListener("input", function () {
+      const keyword = this.value.toLowerCase();
+      document.querySelectorAll(".movie-card").forEach((card) => {
+        const title = card.dataset.title;
+        card.style.display = title.includes(keyword) ? "block" : "none";
+      });
+    });
+
+    window.addEventListener("scroll", () => {
+      document.getElementById("backToTop").style.display = window.scrollY > 300 ? "block" : "none";
+    });
+  </script>
+</body>
+
+</html>
