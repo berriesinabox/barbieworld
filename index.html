@@ -35,11 +35,14 @@
 
   <!-- I wrapped everything in a header so I can style the nav separately -->
   <header>
-    <!-- I set up a navigation bar with links to all pages -->
+    <!-- Navigation bar with mobile hamburger -->
     <nav class="navbar">
       <img src="images/barbie-logo.png" alt="Barbie Logo" class="logo" />
 
-      <ul class="nav-links">
+      <!-- 🍔 hamburger icon (only shows ≤600 px) -->
+      <div class="hamburger" onclick="toggleMenu()" aria-label="Toggle navigation">☰</div>
+
+      <ul id="nav-links" class="nav-links">
         <li><a href="index.html" class="active">𝐇𝐨𝐦𝐞</a></li>
         <li><a href="about.html">𝐀𝐛𝐨𝐮𝐭</a></li>
         <li><a href="movies.html">𝐌𝐨𝐯𝐢𝐞𝐬</a></li>
@@ -50,7 +53,7 @@
   </header>
 
   <main>
-    <!-- I made a hero section to give visitors a warm, sparkly welcome -->
+    <!-- Hero section -->
     <section class="hero">
       <div class="barbie-hero-heading">
         <div class="barbie-top-text">WORLD</div>
@@ -63,20 +66,26 @@
         I invite you to explore decades of style, friendship, and sparkle — all
         in one magical place.
       </p>
-
-      <!-- This button pushes users to the About page where the story begins -->
+      <br />
+      <!-- Button to About -->
       <a href="about.html" class="btn">Explore the Glam &rarr;</a>
     </section>
   </main>
 
-  <!-- I added a footer so I can put copyright info and future social links -->
+  <!-- Footer -->
   <footer>
     <p>&copy; 2025 Barbie World by Shivangi</p>
   </footer>
 
-  <!-- I linked a blank script file where I'll add JavaScript later -->
+  <!-- Script (keeps link to your main JS file) -->
   <script src="js/script.js"></script>
+
+  <!-- Tiny inline helper so the menu works even if script.js is empty -->
+  <script>
+    function toggleMenu() {
+      document.getElementById('nav-links').classList.toggle('show');
+    }
+  </script>
 </body>
 
 </html>
-
