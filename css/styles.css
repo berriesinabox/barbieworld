@@ -646,10 +646,9 @@ footer {
     background-image: none !important;
   }
 }
-/* FINAL PATCH: Mobile layout fixes without breaking anything */
-
+/* 🌸 FINAL MOBILE FIX PATCH 🌸 */
 @media (max-width: 600px) {
-  /* 1. Ensure hero background image is visible and no blur */
+  /* 1. Reset hero blur and keep background visible */
   .hero {
     background-image: url('../images/bg1.jpg') !important;
     background-size: cover;
@@ -659,61 +658,75 @@ footer {
   }
 
   .hero::before,
-  .about-section::before,
   .blur-bg,
-  .background-blur {
+  .background-blur,
+  .about-section::before {
     filter: none !important;
     backdrop-filter: none !important;
-    background: none !important; /* kill dark overlay */
+    background: none !important;
+    opacity: 1 !important;
   }
 
-  /* 2. Move logo to top and center */
+  /* 2. Navbar layout: logo on top, links below */
   .navbar {
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     position: relative;
     top: 0;
-    bottom: unset;
-    padding: 10px;
+    left: 0;
+    right: 0;
+    padding: 10px 5%;
     background-color: #ff69b4;
     box-shadow: 0 4px 12px rgba(255, 105, 180, 0.35);
   }
 
   .navbar .logo {
+    width: 160px;
+    margin-bottom: 10px;
     display: block;
     position: relative;
+    transform: none;
     top: 0;
     left: 0;
-    transform: none;
     margin: 10px auto;
-    width: 140px;
-    filter: drop-shadow(0 0 6px #ff69b4);
   }
 
-  /* 3. Show navbar links */
+  /* 3. Reset nav-links to show by default */
   .nav-links {
     display: flex !important;
     flex-direction: column;
     gap: 10px;
-    width: 100%;
-    justify-content: center;
     align-items: center;
+    width: 100%;
     background: none;
     position: relative;
+    right: 0;
+    height: auto;
     padding: 10px 0;
+    margin: 0;
+  }
+
+  .nav-links li {
+    list-style: none;
   }
 
   .nav-links li a {
-    background-color: #ff69b4;
-    padding: 10px 20px;
+    background-color: #ff1493;
+    padding: 8px 16px;
     border-radius: 20px;
     font-size: 14px;
     color: white;
     text-decoration: none;
+    font-weight: 600;
+  }
+
+  .nav-links li a:hover {
+    background-color: #ff3388;
   }
 }
 
-/* Stretch About section height on desktop */
+/* Desktop/tablet: Make About section full height */
 @media (min-width: 601px) {
   #about,
   .about-page,
