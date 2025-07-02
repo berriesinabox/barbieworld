@@ -818,3 +818,24 @@ footer {
     display: none !important;
   }
 }
+/* === FINAL OVERRIDE PATCH — paste at the very end === */
+@media (max-width: 600px) {
+  /* 1️⃣ Logo on its own line, no overlap */
+  .navbar .logo {
+    position: relative !important;   /* cancel the “fixed” you can’t find */
+    top: 0 !important;
+    left: 0 !important;
+    transform: none !important;
+    margin: 0 auto 10px !important;  /* centers logo, adds space below */
+    width: 160px !important;         /* optional size tweak */
+  }
+
+  /* 2️⃣ Nav links stay in one horizontal row */
+  .nav-links {
+    flex-direction: row !important;
+    justify-content: center !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+    background: transparent !important;
+  }
+}
