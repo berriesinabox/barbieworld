@@ -737,41 +737,12 @@ footer {
 
 /* ‼️ Only the new bits — keep all your existing styles */
 
-/* hide hamburger on desktop */
-.hamburger { display: none; }
-
-/* ≤600 px: mobile styles */
-@media (max-width: 600px) {
-  .hamburger {
-    display: block;
-    font-size: 2rem;
-    cursor: pointer;
-    color: #fff;       /* tweak to match your header */
-  }
-
-  #nav-links {
-    display: none;     /* start hidden */
-    flex-direction: column;
-    position: absolute;
-    top: 60px;         /* adjust if header height differs */
-    left: 0;
-    width: 100%;
-    background: #ffcce0;
-    z-index: 1000;
-  }
-
-  #nav-links.show {           /* toggled by JS */
-    display: flex;
-  }
-
-  #nav-links li a {
-    padding: 15px;
-    border-bottom: 1px solid #fff;
-    color: #ff1493;
-  }
+/* Remove hamburger (completely hide it) */
+.hamburger {
+  display: none !important;
 }
 
-/* Fix for mobile navbar layout */
+/* Make mobile nav links appear inline */
 @media (max-width: 600px) {
   .navbar {
     flex-direction: column;
@@ -779,26 +750,31 @@ footer {
   }
 
   .nav-links {
-    display: flex !important;  /* Show links always */
-    flex-direction: row;       /* Horizontally aligned */
-    justify-content: center;
+    display: flex !important; /* Ensure links show */
+    flex-direction: row;
     flex-wrap: wrap;
+    justify-content: center;
+    background: transparent;  /* Remove pink block */
     padding: 0;
-    margin-top: 10px;
+    margin: 0;
   }
 
   .nav-links li {
     list-style: none;
-    margin: 0 8px;
+    margin: 0 6px;
   }
 
   .nav-links a {
-    font-size: 0.9rem;
-    padding: 5px 8px;
-    display: inline-block;
+    font-size: 14px;
+    padding: 6px 10px;
+    text-decoration: none;
+    color: #fff;
+    background: none;
+    border: none;
+    font-weight: 500;
   }
 
-  .hamburger {
-    display: none !important; /* Hide hamburger if it was added */
+  .nav-links a.active {
+    text-decoration: underline;
   }
 }
