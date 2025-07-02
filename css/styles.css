@@ -734,3 +734,40 @@ footer {
     min-height: 100vh;
   }
 }
+
+/* ‼️ Only the new bits — keep all your existing styles */
+
+/* hide hamburger on desktop */
+.hamburger { display: none; }
+
+/* ≤600 px: mobile styles */
+@media (max-width: 600px) {
+  .hamburger {
+    display: block;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #fff;       /* tweak to match your header */
+  }
+
+  #nav-links {
+    display: none;     /* start hidden */
+    flex-direction: column;
+    position: absolute;
+    top: 60px;         /* adjust if header height differs */
+    left: 0;
+    width: 100%;
+    background: #ffcce0;
+    z-index: 1000;
+  }
+
+  #nav-links.show {           /* toggled by JS */
+    display: flex;
+  }
+
+  #nav-links li a {
+    padding: 15px;
+    border-bottom: 1px solid #fff;
+    color: #ff1493;
+  }
+}
+
