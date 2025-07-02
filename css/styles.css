@@ -646,3 +646,78 @@ footer {
     background-image: none !important;
   }
 }
+/* FINAL PATCH: Mobile layout fixes without breaking anything */
+
+@media (max-width: 600px) {
+  /* 1. Ensure hero background image is visible and no blur */
+  .hero {
+    background-image: url('../images/bg1.jpg') !important;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+  }
+
+  .hero::before,
+  .about-section::before,
+  .blur-bg,
+  .background-blur {
+    filter: none !important;
+    backdrop-filter: none !important;
+    background: none !important; /* kill dark overlay */
+  }
+
+  /* 2. Move logo to top and center */
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    top: 0;
+    bottom: unset;
+    padding: 10px;
+    background-color: #ff69b4;
+    box-shadow: 0 4px 12px rgba(255, 105, 180, 0.35);
+  }
+
+  .navbar .logo {
+    display: block;
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+    margin: 10px auto;
+    width: 140px;
+    filter: drop-shadow(0 0 6px #ff69b4);
+  }
+
+  /* 3. Show navbar links */
+  .nav-links {
+    display: flex !important;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    background: none;
+    position: relative;
+    padding: 10px 0;
+  }
+
+  .nav-links li a {
+    background-color: #ff69b4;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 14px;
+    color: white;
+    text-decoration: none;
+  }
+}
+
+/* Stretch About section height on desktop */
+@media (min-width: 601px) {
+  #about,
+  .about-page,
+  .about-section {
+    min-height: 100vh;
+  }
+}
