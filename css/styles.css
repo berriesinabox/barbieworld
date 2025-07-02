@@ -664,3 +664,36 @@ footer {
     background-color: #ff1493;
   }
 }
+/* ---------- 1. ABOUT PAGE — fill the whole viewport height on larger screens ---------- */
+@media (min-width: 601px) {            /* desktop / tablet */
+  .about-page,                         /* <section class="about-page"> … */  
+  #about                               /* …or however you’ve ID’d it      */
+  {
+    min-height: 100vh;                 /* full vertical height            */
+  }
+}
+
+/* ---------- 2. MOBILE‑ONLY ADJUSTMENTS ---------- */
+@media (max-width: 600px) {            /* phones */
+  /* 2‑a. Kill the blur so text stays crisp */
+  /* Put whatever element currently has the blur here */
+  .blur-bg,                            /* e.g. a .blur-bg wrapper        */
+  .hero::before,                       /* or your pseudo‑overlay         */
+  header.backdrop                      /* name it however you like       */
+  {
+    filter: none !important;           /* turns off blur()               */
+    backdrop-filter: none !important;  /* safety for Safari              */
+  }
+
+  /* 2‑b. Pop the logo back to the top and center it */
+  .navbar .logo,                       /* adjust selectors to your tree  */
+  header .logo
+  {
+    position: relative !important;     /* stop absolute centering hacks  */
+    top: 0;
+    left: 0;
+    transform: none;
+    margin: 0 auto 1rem;               /* center + a little breathing room */
+    display: block;
+  }
+}
