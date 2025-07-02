@@ -697,3 +697,36 @@ footer {
     display: block;
   }
 }
+/* =========================================================
+   ✅ FINAL PATCH — Mobile blur removal, logo repositioning, and About height
+   ========================================================= */
+
+/* 1. Remove blur only on mobile devices */
+@media (max-width: 600px) {
+  .hero::before,
+  .about-section::before,
+  .blur-bg,
+  .background-blur {
+    filter: none !important;
+    backdrop-filter: none !important;
+  }
+
+  .navbar .logo {
+    position: fixed !important;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    z-index: 10000;
+    margin: 0 !important;
+  }
+}
+
+/* 2. Stretch About section on desktop */
+@media (min-width: 601px) {
+  #about,
+  .about-page,
+  .about-section {
+    min-height: 100vh;
+  }
+}
